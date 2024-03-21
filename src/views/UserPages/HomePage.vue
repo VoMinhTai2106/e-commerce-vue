@@ -1,24 +1,22 @@
 <template>
     <section>
-  <div class="container py-5">
+  <div class="container ">
     <div class="row">
-      <div class="col-md-12 col-lg-3 mb-3 mb-lg-0 my-3" v-for="product in products" :key="product.id">
-        <div class="card" >
-          <img :src="product.url_image"
+      <div class="col-md-12 col-lg-3 mb-3 mb-lg-0 my-4 " v-for="product in products" :key="product.id">
+        <div class="card shadow" style="min-height:400px;"  >
+           <div class="pt-5">
+            <img :src="product.url_image" 
             class="card-img-top" alt="Laptop" />
+           </div>
           <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <p class="small"><a href="#!" class="text-muted">{{ product.category }}</a></p>
-
+            <div class="justify-content-between mb-3"> 
+             <p class="mb-0">{{ product.name }}</p>
+            <p class="text-dark mb-0">Price: ${{ product.price }}</p>
+            <p class="small"><a href="#!" class="text-muted">{{ product.category }}</a></p>
             </div>
-
-            <div class="d-flex justify-content-between mb-3">
-              
-               <router-link :to="'/productinfo/' + product.id" class="no-underline"><p class="mb-0">{{ product.name }}</p></router-link>
-
-              <p class="text-dark mb-0"><small>${{ product.price }}</small></p>
+            <div>
+              <router-link :to="'/product/info/'+product.id" class="btn btn-success">More Info</router-link>
             </div>
-
           </div>
         </div>
       </div>
@@ -43,7 +41,6 @@ export default {
       const querySnapshot = await getDocs(productCollection);
       let fbProducts = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
         const product = {
           id: doc.id,
           name: doc.data().name,
@@ -74,4 +71,7 @@ export default {
     text-decoration: none;
     color: inherit; /* Đảm bảo giữ nguyên màu chữ */
   }
+ .btn.btn-success:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Thay đổi giá trị shadow tùy theo nhu cầu */
+}
 </style>

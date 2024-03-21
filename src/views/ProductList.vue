@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-bordered table-striped rounded">
+  <table class="table table-bordered table-striped rounded shadow">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -37,7 +37,7 @@
         <td>{{ product.description }}</td>
         <td>
           <div>
-            <router-link :to="'/product/edit/' + product.id" class="btn btn-success">Edit</router-link>
+            <router-link :to="'/product/edit/'+product.id" class="btn btn-success">Edit</router-link>
             <button
               class="btn btn-danger"
               @click="deleteProduct(product.id, product.uniqueFileName)"

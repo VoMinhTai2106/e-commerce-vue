@@ -29,10 +29,8 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <button class="btn nav-link" aria-current="page" @click="abcd">
-              Home
-            </button>
+          <li class="nav-item" v-if="$store.state.isLogin">
+            <a class="nav-link" aria-current="page" href="/product/cart">Cart</a>
           </li>
           <li
             class="nav-item"
@@ -42,11 +40,26 @@
               Product List
             </a>
           </li>
+          
           <li
             class="nav-item"
             v-if="$store.state.isAdmin && $store.state.isLogin"
           >
             <a class="nav-link" href="/product/add">Add Product</a>
+          </li>
+          <li
+            class="nav-item"
+            v-if="$store.state.isLogin"
+          >
+            <a class="nav-link" aria-current="page" href="/order/history">
+              History Order
+            </a>
+          </li>
+          <li
+            class="nav-item"
+            v-if="$store.state.isAdmin && $store.state.isLogin"
+          >
+            <a class="nav-link" href="/order/list">Order List</a>
           </li>
         </ul>
         <template v-if="$store.state.isLogin">

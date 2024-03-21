@@ -13,7 +13,6 @@ class AuthService {
     isAdmin(){
         const user = this.getCurrentUser();
         if(user && user.role === 'admin'){
-            console.log(user.role);
             return true;
         }
         return false;
