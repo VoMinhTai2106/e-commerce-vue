@@ -111,7 +111,7 @@
 <script>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection,serverTimestamp  } from "firebase/firestore";
 import { db } from "@/firebase";
 
 export default {
@@ -156,6 +156,7 @@ export default {
           full_name: userdetail.value.fullname,
           phone: userdetail.value.phone,
           address: userdetail.value.address,
+           orderedAt: serverTimestamp()
         });
 
         // Xóa giỏ hàng sau khi lưu đơn hàng thành công

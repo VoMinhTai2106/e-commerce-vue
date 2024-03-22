@@ -1,7 +1,7 @@
 <template>
   <div class="row border rounded-2 border-2 bg-light m-1 ">
     <div class="bg-primary mb-3">
-      <h1 class="text-white text-center">Add Product</h1>
+      <h1 class="text-white text-center">Edit Product</h1>
     </div>
     <form @submit.prevent="updateProduct">
       <div class="row g-2">
@@ -88,7 +88,7 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit">Edit</button>
       </div>
     </form>
   </div>
@@ -178,7 +178,8 @@ export default {
         uniqueFileName: product.value.uniqueFileName, 
       });
     product.value = {};
-        alert("Product Add successfully");
+        alert("Edit Product successfully");
+        router.push("/product/list")
       }catch (error) {
         console.error(error);
       }

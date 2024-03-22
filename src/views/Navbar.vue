@@ -52,7 +52,7 @@
             v-if="$store.state.isLogin"
           >
             <a class="nav-link" aria-current="page" href="/order/history">
-              History Order
+              My History Order
             </a>
           </li>
           <li
